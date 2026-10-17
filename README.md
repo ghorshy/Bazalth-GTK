@@ -1,7 +1,7 @@
 ## Bazalth
 
 Dark, monochrome theme for GTK 3, GTK 4 and libadwaita apps, the sibling of
-[Bazalth-KDE](https://github.com/ghorshy/Bazalth-KDE). Flat, compact widgets in shades of
+[Bazalth-QT](https://github.com/ghorshy/Bazalth-QT). Flat, compact widgets in shades of
 grey, with small rounded corners.
 
 - `Bazalth/`: the theme, ready to install (`gtk-3.0/`, `gtk-4.0/`, `index.theme`)

@@ -1,6 +1,6 @@
 # Every color and size the theme uses. Edit, then run ./build.py.
 # Names and values mirror the desktop's theme file (Hyprland, Quickshell, rofi)
-# and the Qt theme (Bazalth-KDE), so syncing them means copying values, never
+# and the Qt theme (Bazalth-QT), so syncing them means copying values, never
 # translating them.
 
 name = "Bazalth"
