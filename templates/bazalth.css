@@ -1,0 +1,546 @@
+/* Shared by GTK 3 and GTK 4, appended to both by build.py: the widgets drawn as
+   in the Qt theme and the Quickshell desktop rather than as in Graphite. */
+
+/**************
+ * Indicators *
+ **************/
+/* Check boxes and radio buttons as in the Qt theme: off they look like a field,
+   on they are filled with the text color and carry a mark in the base color.
+   Disabled ones keep that look at the disabled opacity, as Kvantum draws them. */
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 2px;
+  padding: 0;
+  border: {{ ui.border }}px solid {{ border }};
+  background-color: {{ rgba(surface, opacity.muted) }};
+  background-clip: padding-box; /* the border must not stack on the fill */
+  background-image: none;
+  box-shadow: none;
+  color: {{ base }};
+}
+
+check {
+  border-radius: {{ ui.radius }}px;
+}
+
+radio {
+  border-radius: 9999px;
+}
+
+check:hover,
+radio:hover {
+  border-color: {{ textDim }};
+  background-color: {{ surface }};
+}
+
+check:active,
+radio:active {
+  border-color: {{ textDim }};
+  background-color: {{ overlay }};
+}
+
+check:disabled,
+radio:disabled {
+  border-color: {{ rgba(border, opacity.disabled) }};
+  background-color: {{ rgba(surface, opacity.muted * opacity.disabled) }};
+}
+
+check:checked, check:indeterminate,
+radio:checked, radio:indeterminate,
+check:checked:hover, check:indeterminate:hover,
+radio:checked:hover, radio:indeterminate:hover {
+  border-color: {{ text }};
+  background-color: {{ text }};
+  color: {{ base }};
+}
+
+check:checked:active, check:indeterminate:active,
+radio:checked:active, radio:indeterminate:active {
+  border-color: {{ textDim }};
+  background-color: {{ textDim }};
+}
+
+check:checked:disabled, check:indeterminate:disabled,
+radio:checked:disabled, radio:indeterminate:disabled {
+  border-color: {{ rgba(text, opacity.disabled) }};
+  background-color: {{ rgba(text, opacity.disabled) }};
+}
+
+/**********
+ * Switch *
+ **********/
+/* The Quickshell switch: a 32x18 pill, knob inset by 2px. */
+switch {
+  min-width: 32px;
+  min-height: 18px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ surface }};
+  background-image: none;
+  box-shadow: none;
+  color: transparent;
+  font-size: 0;
+}
+
+switch:checked {
+  background-color: {{ text }};
+}
+
+switch:disabled {
+  background-color: {{ rgba(surface, opacity.disabled) }};
+}
+
+switch:checked:disabled {
+  background-color: {{ rgba(text, opacity.disabled) }};
+}
+
+switch slider {
+  min-width: 14px;
+  min-height: 14px;
+  margin: 2px;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ textDim }};
+  background-image: none;
+  box-shadow: none;
+  outline: none;
+}
+
+switch:hover slider {
+  background-color: {{ text }};
+}
+
+switch:checked slider,
+switch:checked:hover slider {
+  background-color: {{ base }};
+}
+
+switch:disabled slider {
+  background-color: {{ textFaint }};
+}
+
+switch:checked:disabled slider {
+  background-color: {{ rgba(base, opacity.muted) }};
+}
+
+switch image {
+  color: transparent;
+  -gtk-icon-source: none;
+}
+
+/* In menus and popovers the same looks apply; Graphite inverts them there. */
+popover check:checked, popover check:indeterminate,
+popover radio:checked, popover radio:indeterminate,
+popover check:checked:hover, popover check:indeterminate:hover,
+popover radio:checked:hover, popover radio:indeterminate:hover,
+menu menuitem check:checked, menu menuitem radio:checked,
+menu menuitem:hover check:checked, menu menuitem:hover radio:checked {
+  border-color: {{ text }};
+  background-color: {{ text }};
+  color: {{ base }};
+}
+
+popover check:not(:checked):not(:indeterminate):hover,
+popover radio:not(:checked):not(:indeterminate):hover {
+  border-color: {{ textDim }};
+  background-color: {{ surface }};
+}
+
+/**********
+ * Slider *
+ **********/
+/* As in the Qt theme: a 6px pill groove, the filled part in the text color, a 16px knob. */
+scale trough {
+  min-width: 6px;
+  min-height: 6px;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ surface }};
+  background-image: none;
+  box-shadow: none;
+}
+
+scale trough:disabled {
+  background-color: {{ rgba(surface, opacity.disabled) }};
+}
+
+scale highlight {
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ text }};
+  background-image: none;
+  box-shadow: none;
+}
+
+scale highlight:disabled {
+  background-color: {{ rgba(text, opacity.disabled) }};
+}
+
+scale fill {
+  background-color: transparent;
+}
+
+scale slider {
+  min-width: 16px;
+  min-height: 16px;
+  margin: -5px;
+}
+
+scale slider,
+scale slider:hover {
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ text }};
+  background-image: none;
+  box-shadow: none;
+}
+
+scale slider:active {
+  background-color: {{ textDim }};
+  box-shadow: none;
+}
+
+scale:focus slider,
+scale:focus-visible slider {
+  box-shadow: inset 0 0 0 {{ ui.border }}px {{ borderActive }};
+}
+
+scale slider:disabled {
+  background-color: {{ textFaint }};
+  box-shadow: none;
+}
+
+/********************
+ * Suggested action *
+ ********************/
+/* Qt draws the default button like any other button. */
+button.suggested-action {
+  background-color: {{ rgba(surface, opacity.muted) }};
+  color: {{ text }};
+  box-shadow: none;
+}
+
+button.suggested-action:hover {
+  background-color: {{ surface }};
+}
+
+button.suggested-action:active,
+button.suggested-action:checked {
+  background-color: {{ overlay }};
+}
+
+button.suggested-action:focus {
+  box-shadow: inset 0 0 0 {{ ui.border }}px {{ rgba(borderActive, opacity.muted) }};
+}
+
+button.suggested-action:disabled {
+  background-color: {{ rgba(surface, opacity.muted * opacity.disabled) }};
+  color: {{ textFaint }};
+  box-shadow: none;
+}
+
+button.suggested-action.flat {
+  background-color: transparent;
+  color: {{ text }};
+  box-shadow: none;
+}
+
+/*************
+ * Headerbar *
+ *************/
+/* Flat, the window's own base, one line along the bottom; also when tiled. */
+window.background headerbar,
+window.background .titlebar:not(headerbar),
+window.background headerbar.titlebar {
+  box-shadow: inset 0 -{{ ui.border }}px {{ border }};
+}
+
+headerbar entry:focus-within {
+  box-shadow: inset 0 0 0 {{ ui.border }}px {{ borderActive }};
+  outline-color: transparent;
+}
+
+/***************
+ * OSD buttons *
+ ***************/
+/* Over video and images: the popup surface, like the desktop's OSD. */
+button.osd {
+  background-color: {{ rgba(base, opacity.popup) }};
+  color: {{ text }};
+  box-shadow: none;
+}
+
+button.osd:hover {
+  background-color: {{ surface }};
+  color: {{ text }};
+}
+
+button.osd:active,
+button.osd:checked {
+  background-color: {{ overlay }};
+  color: {{ text }};
+}
+
+/****************
+ * Progress bar *
+ ****************/
+/* A 6px pill: muted surface groove, text-colored progress. */
+progressbar trough {
+  min-width: 6px;
+  min-height: 6px;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ rgba(surface, opacity.muted) }};
+  box-shadow: none;
+}
+
+progressbar progress {
+  min-width: 6px;
+  min-height: 6px;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ text }};
+  background-image: none;
+  box-shadow: none;
+}
+
+progressbar:disabled progress {
+  background-color: {{ rgba(text, opacity.disabled) }};
+}
+
+/********
+ * Tabs *
+ ********/
+/* Flat tabs on no strip, the current one filled like a checked tool button; the page sits
+   in a thin rounded frame. */
+notebook,
+notebook.frame {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+notebook > header {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+notebook > header tab {
+  min-height: 24px;
+  margin: 0 2px 0 0;
+  padding: 0 {{ ui.padding + 2 }}px;
+  border: none;
+  border-radius: {{ ui.radius }}px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: {{ textDim }};
+}
+
+notebook > header tab:hover {
+  background-color: {{ rgba(surface, opacity.hover) }};
+  color: {{ text }};
+}
+
+notebook > header tab:checked {
+  background-color: {{ rgba(surface, opacity.active) }};
+  color: {{ text }};
+}
+
+notebook > header tab label {
+  color: inherit;
+}
+
+notebook > header.top {
+  margin-bottom: 4px;
+}
+
+notebook > header.bottom {
+  margin-top: 4px;
+}
+
+notebook > header.left {
+  margin-right: 4px;
+}
+
+notebook > header.right {
+  margin-left: 4px;
+}
+
+notebook > stack:not(:only-child) {
+  border: {{ ui.border }}px solid {{ rgba(surface, opacity.muted) }};
+  border-radius: {{ ui.radius }}px;
+  background-color: {{ base }};
+}
+
+/*********
+ * Views *
+ *********/
+/* Views sit one step below the window with no frame around them, as in Qt. */
+frame > border,
+scrolledwindow.frame,
+frame.view > border {
+  border: none;
+  box-shadow: none;
+}
+
+list,
+listview,
+treeview.view,
+columnview,
+textview > text,
+textview text,
+iconview,
+.view:not(:selected):not(headerbar):not(scrollbar) {
+  background-color: {{ view }};
+}
+
+/* Rows: hover tints them, selection fills them with overlay, with rounded corners. */
+list > row,
+listview > row {
+  min-height: 24px;
+  border-radius: {{ ui.radius }}px;
+}
+
+list > row:hover,
+listview > row:hover {
+  background-color: {{ rgba(surface, opacity.hover) }};
+}
+
+list > row:selected,
+listview > row:selected,
+list > row:selected:hover,
+listview > row:selected:hover {
+  background-color: {{ overlay }};
+  color: {{ text }};
+}
+
+treeview.view:hover:not(:selected) {
+  background-color: {{ rgba(surface, opacity.hover) }};
+}
+
+treeview.view:selected,
+columnview > listview > row:selected {
+  background-color: {{ overlay }};
+  color: {{ text }};
+}
+
+/* Table headers: flat, dim text, one line along the bottom. */
+treeview.view header button,
+columnview > header > button {
+  min-height: 24px;
+  padding: 0 4px;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: inset 0 -{{ ui.border }}px {{ rgba(surface, opacity.muted) }};
+  color: {{ textDim }};
+}
+
+treeview.view header button:hover,
+columnview > header > button:hover {
+  background-color: {{ rgba(surface, opacity.hover) }};
+  color: {{ text }};
+}
+
+/**************
+ * Scrollbars *
+ **************/
+/* Thin pills, as in the Qt theme: faint at rest, brighter while used. */
+scrollbar,
+scrollbar trough {
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+scrollbar slider {
+  min-width: 8px;
+  min-height: 8px;
+  border: none;
+  border-radius: 9999px;
+  background-color: {{ rgba(textFaint, opacity.muted) }};
+  box-shadow: none;
+}
+
+scrollbar slider:hover {
+  background-color: {{ textDim }};
+}
+
+scrollbar slider:active {
+  background-color: {{ text }};
+}
+
+scrollbar slider:disabled {
+  background-color: {{ rgba(textFaint, opacity.hover) }};
+}
+
+/****************
+ * Spin buttons *
+ ****************/
+/* As tall as a field, with flat +/- buttons inside it, like Qt's inline spin indicators. */
+spinbutton:not(.vertical),
+spinbutton:not(.vertical) > text,
+spinbutton:not(.vertical) entry {
+  min-height: 24px;
+}
+
+spinbutton:not(.vertical) button,
+spinbutton:not(.vertical) button:hover,
+spinbutton:not(.vertical) button:active {
+  min-height: 24px;
+  min-width: 24px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: {{ ui.radius }}px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: {{ textDim }};
+}
+
+spinbutton:not(.vertical) button:hover {
+  background-color: {{ rgba(surface, opacity.hover) }};
+  color: {{ text }};
+}
+
+spinbutton:not(.vertical) button:active {
+  background-color: {{ surface }};
+  color: {{ text }};
+}
+
+spinbutton:not(.vertical) button:disabled {
+  color: {{ textFaint }};
+}
+
+/*********
+ * Menus *
+ *********/
+/* Qt menus have no arrow pointing at their button; GTK 4 keeps the arrow's space, so it
+   only stops being drawn. */
+popover.menu > arrow {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/****************
+ * Placeholders *
+ ****************/
+/* Qt draws placeholder text as the text color at half opacity over the field. */
+entry placeholder,
+text > placeholder {
+  color: {{ mix(text, mix(surface, base, opacity.muted), opacity.muted) }};
+  opacity: 1;
+}
