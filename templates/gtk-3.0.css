@@ -485,7 +485,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
 
 .entry-tag {
   margin: 2px;
-  border-radius: 9999px;
+  border-radius: {{ ui.radius }}px;
   box-shadow: none;
   background-color: {{ rgba(surface, opacity.muted) }};
   color: {{ text }};
@@ -590,6 +590,10 @@ actionbar > revealer > box .linked > button:checked:disabled:not(.suggested-acti
 
 button.titlebutton:not(.suggested-action):not(.destructive-action), filechooser #pathbarbox > stack > box > button, check,
 radio, button.close, button.circular, .inline-toolbar button:not(.text-button), button.image-button {
+  border-radius: {{ ui.radius }}px;
+}
+
+radio, button.circular {
   border-radius: 9999px;
 }
 
@@ -1983,7 +1987,7 @@ frame > paned > notebook > header, notebook.frame > header {
 
 notebook, notebook.frame {
   background-color: {{ view }};
-  border-radius: 8px;
+  border-radius: {{ ui.radius }}px;
 }
 
 notebook.frame frame > border {
@@ -2000,7 +2004,7 @@ notebook > header {
   background-color: {{ rgba(surface, opacity.muted) }};
   padding: 2px;
   margin: 2px;
-  border-radius: {{ ui.radius + 2 }}px;
+  border-radius: {{ ui.radius }}px;
 }
 
 notebook > header.top > tabs > arrow {
@@ -3871,7 +3875,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
   padding-left: 8px;
   padding-right: 8px;
   border: solid 1px {{ rgba(surface, opacity.muted) }};
-  border-radius: 5px;
+  border-radius: {{ ui.radius }}px;
   box-shadow: inset 0 -2px {{ rgba(surface, opacity.muted) }};
   background-color: {{ surface }};
   color: {{ text }};
@@ -3893,7 +3897,7 @@ stackswitcher {
 
 stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
   margin: 0 0;
-  border-radius: 9999px;
+  border-radius: {{ ui.radius }}px;
   background-color: transparent;
   min-height: 20px;
   padding: 3px 8px;

@@ -72,7 +72,7 @@ textview border {
 }
 
 iconview:hover, iconview:selected {
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 rubberband, .content-view rubberband, .content-view columnview.view > rubberband,
@@ -438,7 +438,7 @@ treeview entry.flat, treeview entry.flat:focus-within, treeview entry, treeview 
 
 .entry-tag {
   margin: 2px;
-  border-radius: 9999px;
+  border-radius: 4px;
   box-shadow: none;
   background-color: rgba(66, 66, 66, 0.5);
   color: #fafafa;
@@ -821,7 +821,7 @@ button.destructive-action.flat:checked {
 
 menubutton.pill > button, button.pill {
   padding: 6px 20px;
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 
 button.card {
@@ -906,10 +906,14 @@ windowcontrols > button:not(.suggested-action):not(.destructive-action), filecho
 row.spin spinbutton > button.image-button.down:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
 row.spin spinbutton > button.image-button.down:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(ltr):last-child,
 row.spin spinbutton > button.image-button.down:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(rtl):first-child, menubutton.circular > button, button.close, button.circular {
-  border-radius: 9999px;
+  border-radius: 4px;
   min-width: 22px;
   min-height: 22px;
   padding: 4px;
+}
+
+menubutton.circular > button, button.circular {
+  border-radius: 9999px;
 }
 
 windowcontrols > button:not(.suggested-action):not(.destructive-action) label, filechooser #pathbarbox > stack > box > button label, row.spin spinbutton > button.image-button.up:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):last-child label, row.spin spinbutton > button.image-button.up:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):last-child:dir(ltr):last-child label, row.spin spinbutton > button.image-button.up:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):last-child:dir(rtl):first-child label,
@@ -923,6 +927,10 @@ placessidebar .navigation-sidebar > row button.sidebar-button, notebook > header
   min-height: 22px;
   min-width: 22px;
   padding: 0;
+  border-radius: 4px;
+}
+
+popover.menu box.circular-buttons button.circular.image-button.model {
   border-radius: 9999px;
 }
 
@@ -951,6 +959,10 @@ menubutton.suggested-action, menubutton.destructive-action, menubutton.opaque {
 }
 
 menubutton.suggested-action.circular, menubutton.suggested-action.pill, menubutton.destructive-action.circular, menubutton.destructive-action.pill, menubutton.opaque.circular, menubutton.opaque.pill {
+  border-radius: 4px;
+}
+
+menubutton.suggested-action.circular, menubutton.destructive-action.circular, menubutton.opaque.circular {
   border-radius: 9999px;
 }
 
@@ -1858,7 +1870,7 @@ headerbar stackswitcher {
 }
 
 headerbar stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action).text-button {
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 
 headerbar stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action).text-button:checked {
@@ -1969,7 +1981,7 @@ headerbar .pathbar {
   margin-top: 0;
   margin-bottom: 0;
   min-height: 20px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: none;
   box-shadow: none;
 }
@@ -2327,7 +2339,7 @@ popover.background > contents stack > box {
 
 popover.background > contents stack > scrolledwindow > viewport {
   border: 1px solid #595959;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 popover.background > contents > box > button {
@@ -2397,7 +2409,7 @@ frame > paned > notebook > header, notebook.frame > header {
 
 notebook, notebook.frame {
   background-color: #1a1a1a;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 notebook.frame frame > border {
@@ -2414,7 +2426,7 @@ notebook > header {
   background-color: rgba(66, 66, 66, 0.5);
   padding: 2px;
   margin: 2px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 notebook > header.top > tabs > arrow {
@@ -2553,7 +2565,7 @@ tabbar .box {
   background-color: rgba(66, 66, 66, 0.5);
   padding: 0;
   margin: 2px;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: none;
 }
 
@@ -2580,7 +2592,7 @@ tabbar tabbox > separator.hidden {
 
 tabbar tabbox > revealer > indicator {
   min-width: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
   margin: 3px 6px;
   background: rgba(250, 250, 250, 0.5);
 }
@@ -2634,13 +2646,13 @@ dnd tab button.image-button {
 tabbar tab indicator,
 dnd tab indicator {
   min-height: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
   background: rgba(250, 250, 250, 0.5);
   transform: translateY(4px);
 }
 
 tabthumbnail {
-  border-radius: 8px;
+  border-radius: 4px;
   transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1), background-color cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -2939,15 +2951,19 @@ check,
 radio {
   min-height: 16px;
   min-width: 16px;
-  -gtk-icon-size: 16px;
+  -gtk-icon-size: 14px;
   padding: 0;
   margin: 2px;
   border: 2px solid #bdbdbd;
   background-clip: border-box;
   background-color: transparent;
-  border-radius: 9999px;
+  border-radius: 4px;
   box-shadow: 0 0 0 10px transparent;
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-color 225ms cubic-bezier(0, 0, 0.2, 1), box-shadow 225ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+radio {
+  border-radius: 9999px;
 }
 
 check:hover,
@@ -3695,7 +3711,7 @@ stacksidebar separator.horizontal, button.font separator, button.file separator 
 list.boxed-list-separate > row, listview.boxed-list,
 list.boxed-list, listview.content:not(.conversation-listbox),
 list.content:not(.conversation-listbox) {
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: none;
   border: 1px solid #595959;
   background-color: #1a1a1a;
@@ -4563,7 +4579,7 @@ calendar > grid {
 }
 
 calendar > grid > label {
-  border-radius: 9999px;
+  border-radius: 4px;
   margin: 0;
 }
 
@@ -5924,7 +5940,7 @@ shortcut > .keycap {
   padding-left: 8px;
   padding-right: 8px;
   border: solid 1px rgba(66, 66, 66, 0.5);
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: inset 0 -2px rgba(66, 66, 66, 0.5);
   background-color: #424242;
   color: #fafafa;
@@ -5955,7 +5971,7 @@ stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destruc
 }
 
 stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):first-child, stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):last-child, stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 
 stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action).text-button {
@@ -6179,7 +6195,7 @@ preferencesgroup > box button.background-preview-button.toggle {
 }
 
 preferencesgroup > box button.background-preview-button.toggle, preferencesgroup > box button.background-preview-button.toggle > background-preview {
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 preferencesgroup > box button.background-preview-button.toggle:hover {
@@ -6236,7 +6252,7 @@ statuspage.compact > scrolledwindow > viewport > box > clamp > box > .title {
 toast {
   margin: 8px;
   margin-bottom: 16px;
-  border-radius: 9999px;
+  border-radius: 4px;
   border-spacing: 4px;
   padding: 4px;
   box-shadow: inset 0 1px transparent;
@@ -6562,7 +6578,7 @@ dialog-host > dialog.osd:not(progressbar):not(button):not(menubutton):not(splitb
 
 toggle-group {
   background: rgba(66, 66, 66, 0.5);
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 2px;
   border-spacing: 0;
 }
@@ -6631,7 +6647,7 @@ toggle-group > toggle:checked:disabled {
 toggle-group.osd, .osd toggle-group {
   background: #212121;
   color: #fafafa;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: none;
   padding: 2px;
   margin: 0;
@@ -6692,11 +6708,11 @@ toggle-group > separator:disabled {
 }
 
 toggle-group.round {
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 
 toggle-group.round toggle {
-  border-radius: 9999px;
+  border-radius: 4px;
 }
 
 toggle-group.round toggle.text-button, toggle-group.round toggle.image-text-button {
@@ -6960,8 +6976,9 @@ FIXME this is really an API */
    Disabled ones keep that look at the disabled opacity, as Kvantum draws them. */
 check:not(#bazalth),
 radio:not(#bazalth) {
-  min-width: 16px;
-  min-height: 16px;
+  /* 16px with the border, as in the Qt theme: GTK adds the border outside min-width */
+  min-width: 14px;
+  min-height: 14px;
   margin: 2px;
   padding: 0;
   border: 1px solid #595959;

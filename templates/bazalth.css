@@ -9,8 +9,9 @@
    Disabled ones keep that look at the disabled opacity, as Kvantum draws them. */
 check,
 radio {
-  min-width: 16px;
-  min-height: 16px;
+  /* 16px with the border, as in the Qt theme: GTK adds the border outside min-width */
+  min-width: {{ 16 - 2 * ui.border }}px;
+  min-height: {{ 16 - 2 * ui.border }}px;
   margin: 2px;
   padding: 0;
   border: {{ ui.border }}px solid {{ border }};

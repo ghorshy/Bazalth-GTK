@@ -46,7 +46,8 @@ headers, scroll bars, spin buttons, menus), plus the switch and headerbar after 
 
 Based on [Graphite GTK theme](https://github.com/vinceliuice/Graphite-gtk-theme) by
 vinceliuice: its compiled stylesheets, with every color replaced by a palette token, and its
-symbolic icons (check, dot, line, cursor handle), unchanged.
+cursor handle icon, unchanged. The check, dot and line marks are redrawn with the Qt theme's
+geometry.
 
 ## License
 

@@ -485,7 +485,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
 
 .entry-tag {
   margin: 2px;
-  border-radius: 9999px;
+  border-radius: 4px;
   box-shadow: none;
   background-color: rgba(66, 66, 66, 0.5);
   color: #fafafa;
@@ -590,6 +590,10 @@ actionbar > revealer > box .linked > button:checked:disabled:not(.suggested-acti
 
 button.titlebutton:not(.suggested-action):not(.destructive-action), filechooser #pathbarbox > stack > box > button, check,
 radio, button.close, button.circular, .inline-toolbar button:not(.text-button), button.image-button {
+  border-radius: 4px;
+}
+
+radio, button.circular {
   border-radius: 9999px;
 }
 
@@ -1983,7 +1987,7 @@ frame > paned > notebook > header, notebook.frame > header {
 
 notebook, notebook.frame {
   background-color: #1a1a1a;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 notebook.frame frame > border {
@@ -2000,7 +2004,7 @@ notebook > header {
   background-color: rgba(66, 66, 66, 0.5);
   padding: 2px;
   margin: 2px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 notebook > header.top > tabs > arrow {
@@ -3871,7 +3875,7 @@ cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl)
   padding-left: 8px;
   padding-right: 8px;
   border: solid 1px rgba(66, 66, 66, 0.5);
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: inset 0 -2px rgba(66, 66, 66, 0.5);
   background-color: #424242;
   color: #fafafa;
@@ -3893,7 +3897,7 @@ stackswitcher {
 
 stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
   margin: 0 0;
-  border-radius: 9999px;
+  border-radius: 4px;
   background-color: transparent;
   min-height: 20px;
   padding: 3px 8px;
@@ -4526,8 +4530,9 @@ FIXME this is really an API */
    Disabled ones keep that look at the disabled opacity, as Kvantum draws them. */
 check:not(#bazalth),
 radio:not(#bazalth) {
-  min-width: 16px;
-  min-height: 16px;
+  /* 16px with the border, as in the Qt theme: GTK adds the border outside min-width */
+  min-width: 14px;
+  min-height: 14px;
   margin: 2px;
   padding: 0;
   border: 1px solid #595959;
