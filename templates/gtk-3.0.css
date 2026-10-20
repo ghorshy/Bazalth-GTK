@@ -338,7 +338,7 @@ spinner:checked:disabled {
  ****************/
 spinbutton.vertical, spinbutton:not(.vertical),
 entry {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   padding: 0 {{ ui.padding + ui.radius }}px;
   border-radius: {{ ui.radius }}px;
   caret-color: currentColor;
@@ -610,7 +610,7 @@ placessidebar.sidebar row button.sidebar-button, notebook > header tab button.fl
 }
 
 button {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   min-width: 16px;
   padding: 0 {{ ui.padding + ui.radius }}px;
   border-radius: {{ ui.radius }}px;
@@ -900,7 +900,7 @@ stacksidebar.sidebar row.needs-attention > label:dir(rtl), .stack-switcher > but
 
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   padding: 0 8px;
   border-radius: {{ ui.radius }}px;
   color: {{ text }};
@@ -915,8 +915,8 @@ modelbutton.flat arrow.right {
 }
 
 button.color {
-  min-height: 22px;
-  min-width: 22px;
+  min-height: {{ ui.control - 8 }}px;
+  min-width: {{ ui.control - 8 }}px;
   padding: 4px;
 }
 
@@ -1548,11 +1548,12 @@ headerbar.windowhandle viewswitchertitle > squeezer > viewswitcher > box.horizon
 treeview.view {
   border-left-color: {{ surface }};
   border-top-color: {{ rgba(surface, opacity.muted) }};
-  min-height: 32px;
 }
 
 * {
   -GtkTreeView-horizontal-separator: 4;
+  /* a one-line cell is 21px (17px of text, 2px of padding), the separator makes up the rest */
+  -GtkTreeView-vertical-separator: {{ ui.control - 21 }};
   -GtkTreeView-grid-line-width: 1;
   -GtkTreeView-grid-line-pattern: '';
   -GtkTreeView-tree-line-width: 1;
@@ -1689,7 +1690,7 @@ menubar,
 menubar > menuitem,
 .menubar > menuitem {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1);
-  min-height: 20px;
+  min-height: {{ ui.control - 8 }}px;
   padding: 4px 8px;
   color: {{ textDim }};
   border-radius: {{ ui.radius }}px;
@@ -1931,7 +1932,7 @@ popover.background .linked > button:not(.radio):only-child {
 
 popover.background.menu button,
 popover.background button.model {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   min-width: 48px;
   padding: 0 8px;
   border-radius: {{ ui.radius }}px;

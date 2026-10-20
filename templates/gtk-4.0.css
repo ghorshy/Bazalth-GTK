@@ -244,7 +244,7 @@ spinner:checked:disabled {
  * Text Entries *
  ****************/
 entry {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   padding: 0 {{ ui.padding + ui.radius }}px;
   border-spacing: 4px;
   border-radius: {{ ui.radius }}px;
@@ -579,7 +579,7 @@ row.spin spinbutton > button.image-button.down:checked:disabled:not(.flat):not(.
 }
 
 button {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   min-width: 16px;
   padding: 0 {{ ui.padding + ui.radius }}px;
   border-radius: {{ ui.radius }}px;
@@ -1341,8 +1341,8 @@ stackswitcher > button.needs-attention > image:dir(rtl) {
 }
 
 button.color {
-  min-height: 22px;
-  min-width: 22px;
+  min-height: {{ ui.control - 8 }}px;
+  min-width: {{ ui.control - 8 }}px;
   padding: 4px;
 }
 
@@ -2182,7 +2182,7 @@ menubar {
 
 menubar > item {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1);
-  min-height: 20px;
+  min-height: {{ ui.control - 8 }}px;
   padding: 4px 8px;
   color: {{ textDim }};
 }
@@ -2348,7 +2348,7 @@ popover.background > contents > box > button {
 
 popover.background.menu button,
 popover.background button.model {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   padding: 0 8px;
   border-radius: {{ ui.radius }}px;
 }

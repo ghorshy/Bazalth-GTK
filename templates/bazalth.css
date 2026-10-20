@@ -1,5 +1,31 @@
 /* Shared by GTK 3 and GTK 4, appended to both by build.py: the widgets drawn as
-   in the Qt theme and the Quickshell desktop rather than as in Graphite. */
+   in the Qt theme and the Quickshell desktop rather than as in Graphite.
+   Every one-line control, row, tab and menu row is ui.control tall, as in the Qt theme. */
+
+/***************
+ * Combo boxes *
+ ***************/
+/* An editable combo box is as tall as a field: its arrow button (16px with 2px of padding)
+   sits inside the entry with whatever margin is left. */
+combobox > .linked:not(.vertical) > button:not(:only-child),
+dropdown > .linked:not(.vertical) > button:not(:only-child) {
+  min-height: 16px;
+  min-width: 16px;
+  margin: {{ (ui.control - 20) // 2 }}px;
+  padding: 2px;
+}
+
+combobox > .linked:not(.vertical) > entry:not(:only-child):first-child,
+dropdown > .linked:not(.vertical) > entry:not(:only-child):first-child {
+  margin-right: -{{ ui.control }}px;
+  padding-right: {{ ui.control }}px;
+}
+
+combobox > .linked:not(.vertical) > entry:not(:only-child):last-child,
+dropdown > .linked:not(.vertical) > entry:not(:only-child):last-child {
+  margin-left: -{{ ui.control }}px;
+  padding-left: {{ ui.control }}px;
+}
 
 /**************
  * Indicators *
@@ -24,6 +50,13 @@ radio {
 
 check {
   border-radius: {{ ui.radius }}px;
+}
+
+/* With its label a check box is a full row: the 20px indicator plus padding. */
+checkbutton.text-button,
+radiobutton.text-button {
+  padding-top: {{ (ui.control - 20) // 2 }}px;
+  padding-bottom: {{ (ui.control - 20) // 2 }}px;
 }
 
 radio {
@@ -154,7 +187,13 @@ popover radio:not(:checked):not(:indeterminate):hover {
 /**********
  * Slider *
  **********/
-/* As in the Qt theme: a 6px pill groove, the filled part in the text color, a 16px knob. */
+/* As in the Qt theme: a 6px pill groove, the filled part in the text color, a 16px knob,
+   and no room around the knob, so a slider is 16px across. */
+scale.horizontal,
+scale.vertical {
+  padding: 5px;
+}
+
 scale trough {
   min-width: 6px;
   min-height: 6px;
@@ -335,7 +374,7 @@ notebook > header {
 }
 
 notebook > header tab {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   margin: 0 2px 0 0;
   padding: 0 {{ ui.padding + 2 }}px;
   border: none;
@@ -405,9 +444,10 @@ iconview,
 }
 
 /* Rows: hover tints them, selection fills them with overlay, with rounded corners. */
+/* Graphite pads them by 2px above and below. */
 list > row,
 listview > row {
-  min-height: 24px;
+  min-height: {{ ui.control - 4 }}px;
   border-radius: {{ ui.radius }}px;
 }
 
@@ -424,6 +464,12 @@ listview > row:selected:hover {
   color: {{ text }};
 }
 
+/* Table rows: GTK 4 adds 2px to this min-height; GTK 3 sizes them with its vertical
+   separator (gtk-3.0.css). */
+treeview.view {
+  min-height: {{ ui.control - 2 }}px;
+}
+
 treeview.view:hover:not(:selected) {
   background-color: {{ rgba(surface, opacity.hover) }};
 }
@@ -437,7 +483,7 @@ columnview > listview > row:selected {
 /* Table headers: flat, dim text, one line along the bottom. */
 treeview.view header button,
 columnview > header > button {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
   padding: 0 4px;
   border: none;
   border-radius: 0;
@@ -493,14 +539,14 @@ scrollbar slider:disabled {
 spinbutton:not(.vertical),
 spinbutton:not(.vertical) > text,
 spinbutton:not(.vertical) entry {
-  min-height: 24px;
+  min-height: {{ ui.control }}px;
 }
 
 spinbutton:not(.vertical) button,
 spinbutton:not(.vertical) button:hover,
 spinbutton:not(.vertical) button:active {
-  min-height: 24px;
-  min-width: 24px;
+  min-height: {{ ui.control }}px;
+  min-width: {{ ui.control }}px;
   margin: 0;
   padding: 0;
   border: none;
@@ -534,6 +580,27 @@ popover.menu > arrow {
   border: none;
   background: none;
   box-shadow: none;
+}
+
+/* As in the Qt theme: the border and padding of a menu add up to 4px, and its rows are
+   as tall as a control (GTK 4 pads them by 2px above and below). */
+popover.menu > contents,
+menu,
+.menu,
+.context-menu {
+  padding: {{ 4 - ui.border }}px;
+}
+
+menu menuitem,
+.menu menuitem,
+.context-menu menuitem {
+  min-height: {{ ui.control }}px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+popover.menu modelbutton {
+  min-height: {{ ui.control - 4 }}px;
 }
 
 /****************
